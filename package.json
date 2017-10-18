@@ -1,0 +1,30 @@
+{
+  "name": "transactionListApi",
+  "version": "1.0.0",
+  "description": "RESTful Transaction List APIs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/waimanlam2017/transactionListApi.git"
+  },
+  "keywords": [
+    "RESTful"
+  ],
+  "author": "Ray Lam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/waimanlam2017/transactionListApi/issues"
+  },
+  "homepage": "https://github.com/waimanlam2017/transactionListApi#readme",
+  "devDependencies": {
+    "nodemon": "^1.12.1"
+  },
+  "dependencies": {
+    "express": "^4.16.1",
+    "mongoose": "^4.12.0"
+  }
+}
