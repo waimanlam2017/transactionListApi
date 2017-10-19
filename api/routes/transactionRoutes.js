@@ -1,6 +1,6 @@
 'use strict';
 module.exports = function(app) {
-  var transactionList = require('../controllers/transactiontController');
+  var transactionList = require('../controllers/transactionController');
 
   // transactionList Routes
   app.route('/transactions')

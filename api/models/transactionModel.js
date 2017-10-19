@@ -8,20 +8,17 @@ var TransactionSchema = new Schema({
         required: 'Kindly enter the category of the transaction'
     },
     Amount:{
-        type: Integer,
+        type: Number,
         default: 0
     },
     Unit:{
-        type: [{
-            type: String,
-            enum: ['HKD', 'USD', 'EUR', 'JPY', 'TWD', 'GBP']
-        }],
-        default: ['HKD']
+        type: String,        
+        default: 'HKD'
     },
-    Date: {
+    TransactionDate: {
         type: Date,
         default: Date.now
-    },
+    }
 });
 
-module.exports = mongoose.model('Transaction', TransactionSchema);
+module.exports = mongoose.model('Transactions', TransactionSchema);
