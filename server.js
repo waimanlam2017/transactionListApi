@@ -12,10 +12,6 @@ mongoose.connect('mongodb://localhost/transactionDb');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(function (req, res) {
-    res.send({ url: res.statusCode  })
-});
-
 
 var routes = require('./api/routes/transactionRoutes'); //importing route
 routes(app); //register the route
