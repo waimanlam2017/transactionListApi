@@ -1,24 +1,23 @@
 'use strict';
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var schema = mongoose.Schema;
 
-var TransactionSchema = new Schema({
-    Category: {
+var transactionSchema = new schema({
+    category: {
         type: String,
         required: 'Kindly enter the category of the transaction'
     },
-    Amount:{
+    amount: {
         type: Number,
         default: 0
     },
-    Unit:{
-        type: String,        
-        default: 'HKD'
+    Detail: {
+        type: String
     },
-    TransactionDate: {
+    transactionDate: {
         type: Date,
         default: Date.now
     }
 });
 
-module.exports = mongoose.model('Transactions', TransactionSchema);
+module.exports = mongoose.model('transactions', transactionSchema);

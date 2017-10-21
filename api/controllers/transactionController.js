@@ -1,46 +1,50 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-    Transaction = mongoose.model('Transactions');
+    transaction = mongoose.model('transactions');
 
-exports.list_all_transactions = function (req, res) {
-    Transaction.find({}, function (err, transaction) {
-        if (err) 
-            res.send(err);
+exports.listAllTransactions = function (req, res) {
+    transaction.find({}, function (error, transaction) {
+        if (error) {
+            res.send(error);
+        }
         res.json(transaction);
     });
 };
 
-exports.create_a_transaction = function (req, res) {
-    var new_transaction = new Transaction(req.body);
-    new_transaction.save(function (err, transaction) {
-        if (err)
+exports.createOneTransaction = function (req, res) {
+    var newTransaction = new transaction(req.body);
+    newTransaction.save(function (error, transaction) {
+        if (error) {
             res.send('Error creating a new transaction!');
+        }
         res.json(transaction);
     });
 };
 
-exports.read_a_transaction = function (req, res) {
-    Transaction.findById(req.params.transactionId, function (err, transaction) {
-        if (err)
-            res.send(err);
+exports.readOneTransaction = function (req, res) {
+    transaction.findById(req.params.transactionId, function (error, transaction) {
+        if (error) {
+            res.send(error);
+        }
         res.json(transaction);
     });
 };
 
-exports.update_a_transaction = function (req, res) {
-    Transaction.findOneAndUpdate({ _id: req.params.transactionId }, req.body, { new: true }, function (err, transaction) {
-        if (err)
+exports.updateOneTransaction = function (req, res) {
+    transaction.findOneAndUpdate({ _id: req.params.transactionId }, req.body, { new: true }, function (error, transaction) {
+        if (error) {
             res.send(err);
+        }
         res.json(transaction);
     });
 };
 
-exports.delete_a_transaction = function (req, res) {
-
-    Transaction.remove({ _id: req.params.transactionId }, function (err, transaction) {
-        if (err)
+exports.deleteOneTransaction = function (req, res) {
+    transaction.remove({ _id: req.params.transactionId }, function (error, transaction) {
+        if (err) {
             res.send(err);
+        }
         res.json({ message: 'Transaction successfully deleted' });
     });
 };
